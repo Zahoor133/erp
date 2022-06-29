@@ -8,13 +8,13 @@ mongoose.connect("mongodb://localhost:27017/erpdatabase",
 */
 
 //atlas connection
-const DB = 'mongodb+srv://erpproject:erp@cluster0.boemuql.mongodb.net/erpdatabase?retryWrites=true&w=majority'
-mongoose.connect(DB, {
-    useNewUrlParser: true, useUnifiedTopology: true, family:4
-}).then( () => {
-    console.log('connection successful')
-}).catch( (err) => {
-    console.log('connection failed...')
-})
 
+const connectDB = (url) => {
+    return mongoose.connect(url)
+}
+/*
+mongoose.connect(connectionString).then(() => console.log('connected with db'))
+.catch((err) => console.log(err))
+*/
+module.exports = connectDB
 

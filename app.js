@@ -1,5 +1,6 @@
 const express = require('express')
- require('./db/connection.js')
+require('dotenv').config();
+const connectDB = require('./db/connection.js')
 const app = express()
 
 
@@ -14,6 +15,15 @@ app.use('/api/admin', router);
 
 
 const port = process.env.PORT || 6666;
-app.listen(port, () => {
-    console.log(`Connection is live at port no. ${port}`)
-})
+
+const start = async () => {
+  try {
+    // connectDB
+    await connectDB(process.env.MONGO_URI);
+    app.listen(port, () => console.log(`Server is listening port ${port}...`));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+start();
