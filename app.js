@@ -4,7 +4,7 @@ const connectDB = require('./db/connection.js')
 const app = express()
 
 
-const router = require('./router/routes.js');
+const router = require('./router/admin.router.js');
 
 
 app.use(express.json());
