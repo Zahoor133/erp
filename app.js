@@ -4,13 +4,13 @@ const connectDB = require('./db/connection.js')
 const app = express()
 
 
-const router = require('./router/routes.js');
+const router = require('./router/*');
 
 
 app.use(express.json());
 
 app.use('/api/admin', router);
-
+app.use("/api/employee",router)
 
 
 
