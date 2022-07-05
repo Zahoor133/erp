@@ -18,40 +18,21 @@ const registrationAdmin =  async (req, res) => {
 }
 
 const loginAdmin = async (req,res) =>{
-  
-    AdminData.find({email: req.body.email})
-    .exec()
-    .then(adminData => {
-        if(adminData.length < 1){
-            return res.sendStatus(404);
+    const {email, password} = req.body;
+    AdminData.findOne({email: email})
+    .then(savedAdmin => {
+        if(!savedAdmin)
+        return res.status(401).json({error: 'Invalid Credentials'})
 
-        }
-        bcrypt.compare(req.body.password, adminData[0].password, (err, isEqual) => {
-            if(err) return res.sendStatus(401);
-            if(isEqual){
-                //create a token
-               const token = jwt.sign(
-                {
-                    email: adminData[0].email,
-                    userId: adminData[0]._id
-                },
-                secret.key,{
-                    expiresIn: '1h'
-                }
-               ) 
-
-               return res.status(200).json({
-                message: "Authorization Successful",
-                token: token
-               })
+        bcrypt.compare(password, savedAdmin.password, function(err, result){
+            if(result)
+            {
+                const token = jwt.sign({id:savedAdmin.id}, secret.key)
+                const {id,name,email} = savedAdmin
+                return res.status(202).json({token, admin: {id,name,email}, message: "Logged In"})
             }
-            res.sendStatus(401)
-        })
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            error: err
+            else
+            return res.status(401).json({error: "Invalid Credentials"})
         })
     })
 
