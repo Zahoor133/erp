@@ -1,4 +1,4 @@
-const Empdata = require('../models/empSchema.js')
+const Empdata = require('../model/empSchema.js')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const secret = require('../secret.json')

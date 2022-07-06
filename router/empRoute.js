@@ -1,8 +1,7 @@
 const express = require('express')
-const router = new express.Router()
+const empRouter = new express.Router()
 
-
-const { RegisternewEmp, loginEmployee, } = require('../controllers/empController.js')
+const { RegisternewEmp, loginEmployee, } = require('../controller/empController.js')
 
 
 
@@ -11,4 +10,4 @@ router.post('/signup',RegisternewEmp)
 router.post('/login', loginEmployee)
 
 
-module.exports = router;
+module.exports = empRouter;
