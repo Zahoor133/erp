@@ -6,8 +6,8 @@ const { RegisternewEmp, loginEmployee, } = require('../controller/empController.
 
 
 //get employees
-router.post('/signup',RegisternewEmp)
-router.post('/login', loginEmployee)
+empRouter.post('/signup',RegisternewEmp)
+empRouter.post('/login', loginEmployee)
 
 
 module.exports = empRouter;
