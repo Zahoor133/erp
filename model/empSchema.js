@@ -4,6 +4,11 @@ const bcrypt = require('bcrypt')
 
 //Defining the EmployeeSchema
 const employeeSchema = new mongoose.Schema({
+    employeeId: {
+        type: Number,
+        required: [true, 'employeeid is requuired'],
+        unique: [true, 'Email Already Email'],
+    },
     fullname: {
         type: String,
         required:[true,'Name is Required']  ,
