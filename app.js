@@ -5,13 +5,13 @@ const app = express()
 
 
 const router = require('./router/admin.router.js');
-const router = require ('.router/empRoute')
+const empRouter = require ('./router/empRoute.js')
 
 
 app.use(express.json());
 
 app.use('/api/admin', router);
-app.use('/api/employee', router);
+app.use('/api/employee', empRouter);
 
 
 
