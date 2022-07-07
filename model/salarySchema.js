@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const  {Register, eml} = require('../model/empSchema.js')
 
 
+
 //salary Schema
 
 const salarySchema = new mongoose.Schema({
