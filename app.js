@@ -1,6 +1,6 @@
 const express = require('express')
 require('dotenv').config();
-const connectDB = require('./db/connection.js')
+ require('./db/connection.js')
 const app = express()
 
 
@@ -19,8 +19,13 @@ app.use('/api/employee', empRouter);
 
 
 
-const port = process.env.PORT || 6666;
+const port = process.env.PORT || 666;
 
+/*
+app.listen(port, () => {
+  console.log(`server is running on ${port} port`)
+})
+*/
 const start = async () => {
   try {
     // connectDB

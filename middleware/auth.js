@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken');
-//const {model} = require('mongoose');
+const {model} = require('mongoose');
 const secret = require('../secret.json');
-//const adminData = mongoose.model('adminSchema')
+const adminData = require('../model/adminSchema')
 
 module.exports = (req, res, next) => {
-/* const {authorization} = req.headers
+    
+ const {authorization} = req.headers
 if(!authorization){
     return res.status(401).json({error: "Please Log in"})
 }
@@ -15,26 +16,10 @@ jwt.verify(token, secret.key,(error,payload)=> {
     }
     const {id}= payload
     adminData.findById(id).then(admindata => {
-        req.adminData = admindata
-        req.adminData = admindata
+        req.userData = admindata
+        req.userData = admindata
         next()
     })
-}) */
-
-
-
-
-    try {
-        const token = req.headers.authorization.split(" ")[1];
-        console.log(token)
-        const decoded = jwt.verify(token, secret.key);
-        req.userData = decoded;
-        next();
-        
-    } catch (error) {
-        return res.sendStatus(401)
-        
-    }
-
+}) 
  
 }

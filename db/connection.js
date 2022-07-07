@@ -12,6 +12,8 @@ mongoose.connect("mongodb://localhost:27017/erpdatabase",
 const connectDB = (url) => {
     return mongoose.connect(url)
 }
+
+
 /*
 mongoose.connect(connectionString).then(() => console.log('connected with db'))
 .catch((err) => console.log(err))
