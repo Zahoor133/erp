@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const { model } = require('mongoose');
+//const { model } = require('mongoose');
 const secret = require('../secret.json');
-const adminData = mongoose.model('adminSchema')
+//const adminData = mongoose.model('adminSchema')
 
 module.exports = (req, res, next) => {
 const {authorization} = req.headers
@@ -15,6 +15,7 @@ jwt.verify(token, secret.key,(error,payload)=> {
     }
     const {id}= payload
     adminData.findById(id).then(admindata => {
+        req.adminData = admindata
         req.adminData = admindata
         next()
     })

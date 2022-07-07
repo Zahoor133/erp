@@ -1,13 +1,13 @@
 const express = require('express')
-const router = new express.Router()
+const salaryRouter = new express.Router()
 const checkAuth = require('../middleware/auth')
 
 
 const {createSalaryDataForEmployee } = require('../controller/salaryController.js')
 
 
-     router.post('/salary', checkAuth, createSalaryDataForEmployee)
+     salaryRouter.post('/salary', checkAuth, createSalaryDataForEmployee)
    
   
 
-    module.exports = router;
+    module.exports = salaryRouter;

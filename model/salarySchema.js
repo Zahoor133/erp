@@ -1,5 +1,6 @@
 
 const mongoose = require('mongoose')
+const  {Register, eml} = require('../model/empSchema.js')
 
 
 //salary Schema
@@ -22,7 +23,8 @@ const salarySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    empId: [{type:'employeeId', ref: 'Register'}]
+    empId:[ {
+        type:'employeeId', ref: 'Register'}]
 })
 
 

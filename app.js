@@ -6,11 +6,13 @@ const app = express()
 
 const router = require('./router/admin.router.js');
 const empRouter = require ('./router/empRoute.js')
+const salaryRouter = require('./router/salary.router')
 
 
 app.use(express.json());
 
 app.use('/api/admin', router);
+app.use('/api/salary', salaryRouter)
 app.use('/api/employee', empRouter);
 
 
