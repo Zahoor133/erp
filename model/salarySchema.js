@@ -2,6 +2,7 @@
 const mongoose = require('mongoose')
 
 
+
 //salary Schema
 
 const salarySchema = new mongoose.Schema({
