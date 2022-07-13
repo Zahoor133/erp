@@ -44,9 +44,9 @@ const studentSchema = new mongoose.Schema({
         },
         required: [true, "Email required"]
     },
-    previous_Marks:{
+   /*  previous_Marks:{
         type:Number
-    },
+    }, */
     password: {
         type: String,
         required: true,

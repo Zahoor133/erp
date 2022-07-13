@@ -7,13 +7,15 @@ const app = express()
 const router = require('./router/admin.router.js');
 const empRouter = require ('./router/empRoute.js')
 const salRouter = require('./router/salary.router')
-
+const stuRouter = require ('./router/studentRoute')
+const facRouter = require ('./router/facultyRoute')
 
 app.use(express.json());
 
 app.use('/api/admin', router)
 app.use('/api/admin', salRouter)
 app.use('/api/employee', empRouter);
+app.use('/api/student', stuRouter)
 
 
 
